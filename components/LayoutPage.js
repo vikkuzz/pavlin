@@ -25,7 +25,7 @@ const LayoutPage = ({ children }) => {
         </div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        Vikkuzz ©{new Date().getFullYear()} Сделано жильцом для жильцов)
       </Footer>
     </Layout>
   );
