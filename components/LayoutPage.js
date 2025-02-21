@@ -13,10 +13,10 @@ const LayoutPage = ({ children }) => {
   return (
     <Layout>
       <LayoutHeader />
-      <Content style={{ padding: "24px 48px" }}>
+      <Content>
         <div
           style={{
-            padding: 24,
+            margin: 24,
             minHeight: 380,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,

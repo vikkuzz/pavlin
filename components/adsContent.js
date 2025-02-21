@@ -21,8 +21,8 @@ const AdsContent = () => {
     });
   }, []);
   return (
-    <div className="flex flex-col z-10 w-full h-full items-center justify-between font-mono text-sm lg:flex">
-      <h1 className="text-4xl">Новоград Павлино | Объявления</h1>
+    <div className="flex flex-col z-10 w-full h-full items-center justify-between font-mono text-sm lg:flex p-3">
+      <h1 className="text-3xl md:text-4xl">Новоград Павлино | Объявления</h1>
       <div className="flex items-center h-14">
         {!user ? (
           <Tooltip
