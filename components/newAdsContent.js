@@ -1,0 +1,79 @@
+import React, { useMemo } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Form, Input, Tooltip, Upload } from "antd";
+import { writeNewPost } from "@/database/actionsDatabase";
+import { useAuth } from "@/AuthContext";
+import { useRouter } from "next/navigation";
+
+const { TextArea } = Input;
+
+const normFile = (e) => {
+  if (Array.isArray(e)) {
+    return e;
+  }
+  return e?.fileList;
+};
+
+const NewAdsContent = () => {
+  const { user } = useAuth();
+  const router = useRouter();
+  const handleSubmit = (values) => {
+    console.log("Received values of form:", values, values.text);
+    let photo = values.photo ? values.photo[0] : "";
+    writeNewPost(user.uid, user.email, photo, values.title, values.text);
+    router.push("/ads");
+    // Здесь можно отправить данные на сервер через fetch или axios
+    // Например:
+    // fetch("/your-api-endpoint", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(values),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Success:", data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+  };
+  return (
+    <>
+      <Form
+        layout="vertical"
+        className="flex flex-col w-full"
+        style={{ maxWidth: 600 }}
+        onFinish={handleSubmit}>
+        <Form.Item label="Заголовок" name="title">
+          <Input required />
+        </Form.Item>
+        <Form.Item name="text" label="Текст:">
+          <TextArea rows={4} required />
+        </Form.Item>
+
+        <Form.Item
+          name="photo"
+          label="Фото:"
+          valuePropName="fileList"
+          getValueFromEvent={normFile}>
+          <Upload action="/upload.do" listType="picture-card" disabled>
+            <Tooltip placement="top" title={"Пока не работает :("} arrow={true}>
+              <button style={{ border: 0, background: "none" }} type="button">
+                <PlusOutlined />
+                <div style={{ marginTop: 8 }}>Upload</div>
+              </button>
+            </Tooltip>
+          </Upload>
+        </Form.Item>
+
+        <Form.Item>
+          <Button htmlType="submit">Отправить</Button>
+        </Form.Item>
+      </Form>
+    </>
+  );
+};
+
+export default NewAdsContent;
