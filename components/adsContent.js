@@ -24,39 +24,43 @@ const AdsContent = () => {
     <div className="flex flex-col z-10 w-full h-full items-center justify-between font-mono text-sm lg:flex">
       <h1 className="text-4xl">Новоград Павлино | Объявления</h1>
       <div className="flex items-center h-14">
-        { !user ? 
-          (<Tooltip placement="top" title={"Авторизуйтесь чтобы добавить свое объявление"} arrow={true}>
+        {!user ? (
+          <Tooltip
+            placement="top"
+            title={"Авторизуйтесь чтобы добавить свое объявление"}
+            arrow={true}>
             <div>
-              <Link href={"/ads/new"} className={'pointer-events-none'}>Написать объявление</Link>
+              <Link href={"/ads/new"} className={"pointer-events-none"}>
+                Написать объявление
+              </Link>
             </div>
-          </Tooltip>)
-          : (<Link href={"/ads/new"}>Написать объявление</Link>)
-        }
-        
+          </Tooltip>
+        ) : (
+          <Link href={"/ads/new"}>Написать объявление</Link>
+        )}
       </div>
       <div className="flex flex-col gap-4 justify-center items-center mt-8 w-full h-full">
         <div className="flex flex-wrap gap-3 w-full h-full">
           {posts.length > 0 ? (
             posts.map((el) => {
               return (
-                <Link href={`/ads/${el.id}`}>
-                <Card
-                  key={el.id}
-                  hoverable
-                  
-                  style={{ width: 240 }}
-                  // cover={
-                  //   <img
-                  //     alt="example"
-                  //     src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  //   />
-                  // }
-                >
-                  <Meta
-                    title={el.title}
-                    description={el.body.slice(0, 10) + "..."}
-                  />
-                </Card></Link>
+                <Link href={`/ads/${el.id}`} key={el.id}>
+                  <Card
+                    hoverable
+                    style={{ width: 240 }}
+                    // cover={
+                    //   <img
+                    //     alt="example"
+                    //     src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+                    //   />
+                    // }
+                  >
+                    <Meta
+                      title={el.title}
+                      description={el.body.slice(0, 10) + "..."}
+                    />
+                  </Card>
+                </Link>
               );
             })
           ) : (
