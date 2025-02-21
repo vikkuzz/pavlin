@@ -18,7 +18,6 @@ const NewAdsContent = () => {
   const { user } = useAuth();
   const router = useRouter();
   const handleSubmit = (values) => {
-    console.log("Received values of form:", values, values.text);
     let photo = values.photo ? values.photo[0] : "";
     writeNewPost(user.uid, user.email, photo, values.title, values.text);
     router.push("/ads");

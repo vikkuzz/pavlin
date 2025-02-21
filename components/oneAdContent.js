@@ -12,12 +12,10 @@ const OneAdContent = ({ id }) => {
         id,
         ...obj,
       }));
-      console.log(arrayOfObjects, id);
       const currentPost = arrayOfObjects.filter((el) => el.id === id)[0];
       if (currentPost) {
         setPost(currentPost);
       }
-      console.log("currentPost", currentPost);
     });
   }, []);
   return (

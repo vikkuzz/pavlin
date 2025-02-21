@@ -17,7 +17,6 @@ const LayoutHeader = () => {
   const { user } = useAuth();
   const pathname = usePathname();
   const [navItem, setNavItem] = useState();
-  console.log(user);
 
   useEffect(() => {
     const path = navItems.find((el) => el.href === pathname);
