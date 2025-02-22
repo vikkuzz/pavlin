@@ -1,6 +1,7 @@
 "use client";
 import { useAuth } from "@/AuthContext";
 import { getPosts } from "@/database/actionsDatabase";
+import { Image } from "antd";
 import React, { useEffect, useState } from "react";
 
 const OneAdContent = ({ id }) => {
@@ -26,6 +27,7 @@ const OneAdContent = ({ id }) => {
           <h1 className="text-3xl md:text-4xl">{post.title}</h1>
           <div className="flex flex-col gap-4 justify-center items-center mt-8 w-full h-full">
             <div className="flex flex-col flex-wrap gap-3 w-full h-full">
+              <Image width={200} src={post.authorPic} />
               <p>{post.body}</p>
               <p>Желаемый способ связи:{post.contacts}</p>
               <p>Автор: {post.author}</p>
