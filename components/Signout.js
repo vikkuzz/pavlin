@@ -1,14 +1,17 @@
 import { useAuth } from "../AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { useRouter } from "next/navigation";
 
 const SignOut = () => {
   const { user } = useAuth();
+  const router = useRouter();
 
   const handleSignOut = async () => {
     try {
       await signOut(auth);
       console.log("User signed out");
+      router.push("/");
     } catch (error) {
       console.error("Error signing out:", error);
     }
