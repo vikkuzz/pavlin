@@ -54,7 +54,6 @@ const NewAdsContent = () => {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://api.imageban.ru/v1");
     xhr.onload = function () {
-      console.log(JSON.parse(xhr.responseText).data.link);
       setUrlPhoto(JSON.parse(xhr.responseText).data.link);
     };
     xhr.setRequestHeader("Authorization", "TOKEN FGfFlvkAb63sHUPpBpOi");
