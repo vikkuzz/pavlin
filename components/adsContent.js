@@ -13,11 +13,13 @@ const AdsContent = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     getPosts().then((res) => {
-      const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
-        id,
-        ...obj,
-      }));
-      setPosts(arrayOfObjects);
+      if (res) {
+        const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
+          id,
+          ...obj,
+        }));
+        setPosts(arrayOfObjects);
+      }
     });
   }, []);
   return (

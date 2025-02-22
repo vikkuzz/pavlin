@@ -19,7 +19,7 @@ const LoginPage = () => {
         theme={{
           components: {
             Tabs: {
-              cardBg: "rgba(0,0,0,0.5)",
+              // cardBg: "rgba(0,0,0,0.2)",
             },
           },
         }}>

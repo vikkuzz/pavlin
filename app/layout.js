@@ -57,7 +57,11 @@ export default function RootLayout({ children }) {
         </Script>
         <AuthProvider>
           <AntdRegistry>
-            <LayoutPage>{children}</LayoutPage>
+            <LayoutPage>
+              <main className="flex min-h-screen flex-col items-center justify-between">
+                {children}
+              </main>
+            </LayoutPage>
           </AntdRegistry>
         </AuthProvider>
       </body>
