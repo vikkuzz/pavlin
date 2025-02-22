@@ -19,7 +19,14 @@ const NewAdsContent = () => {
   const router = useRouter();
   const handleSubmit = (values) => {
     let photo = values.photo ? values.photo[0] : "";
-    writeNewPost(user.uid, user.email, photo, values.title, values.text);
+    writeNewPost(
+      user.uid,
+      user.email,
+      photo,
+      values.title,
+      values.text,
+      values.contacts
+    );
     router.push("/ads");
     // Здесь можно отправить данные на сервер через fetch или axios
     // Например:
@@ -50,6 +57,9 @@ const NewAdsContent = () => {
         </Form.Item>
         <Form.Item name="text" label="Текст:">
           <TextArea rows={4} required />
+        </Form.Item>
+        <Form.Item label="Желаемый способ связи" name="contacts">
+          <Input required />
         </Form.Item>
 
         <Form.Item

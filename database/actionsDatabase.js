@@ -1,6 +1,6 @@
 import { getDatabase, ref, child, push, update, get } from "firebase/database";
 
-export function writeNewPost(uid, username, picture, title, body) {
+export function writeNewPost(uid, username, picture, title, body, contacts) {
   const db = getDatabase();
 
   // A post entry.
@@ -9,6 +9,7 @@ export function writeNewPost(uid, username, picture, title, body) {
     uid: uid,
     body: body,
     title: title,
+    contacts: contacts,
     starCount: 0,
     authorPic: picture,
   };

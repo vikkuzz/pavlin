@@ -14,6 +14,7 @@ const OneAdContent = ({ id }) => {
       }));
       const currentPost = arrayOfObjects.filter((el) => el.id === id)[0];
       if (currentPost) {
+        console.log(currentPost);
         setPost(currentPost);
       }
     });
@@ -26,6 +27,7 @@ const OneAdContent = ({ id }) => {
           <div className="flex flex-col gap-4 justify-center items-center mt-8 w-full h-full">
             <div className="flex flex-col flex-wrap gap-3 w-full h-full">
               <p>{post.body}</p>
+              <p>Желаемый способ связи:{post.contacts}</p>
               <p>Автор: {post.author}</p>
             </div>
           </div>
