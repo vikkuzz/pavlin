@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Tooltip, Upload } from "antd";
 import { writeNewPost } from "@/database/actionsDatabase";
@@ -17,12 +17,13 @@ const normFile = (e) => {
 const NewAdsContent = () => {
   const { user } = useAuth();
   const router = useRouter();
+  const [urlPhoto, setUrlPhoto] = useState("");
   const handleSubmit = (values) => {
     let photo = values.photo ? values.photo[0] : "";
     writeNewPost(
       user.uid,
       user.email,
-      photo,
+      urlPhoto,
       values.title,
       values.text,
       values.contacts
@@ -45,6 +46,20 @@ const NewAdsContent = () => {
     //     console.error("Error:", error);
     //   });
   };
+
+  function upload(file) {
+    if (!file || !file.type.match(/image.*/)) return;
+    var fd = new FormData();
+    fd.append("image", file);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://api.imageban.ru/v1");
+    xhr.onload = function () {
+      console.log(JSON.parse(xhr.responseText).data.link);
+      setUrlPhoto(JSON.parse(xhr.responseText).data.link);
+    };
+    xhr.setRequestHeader("Authorization", "TOKEN FGfFlvkAb63sHUPpBpOi");
+    xhr.send(fd);
+  }
   return (
     <>
       <Form
@@ -67,13 +82,13 @@ const NewAdsContent = () => {
           label="Фото:"
           valuePropName="fileList"
           getValueFromEvent={normFile}>
-          <Upload action="/upload.do" listType="picture-card" disabled>
-            <Tooltip placement="top" title={"Пока не работает :("} arrow={true}>
-              <button style={{ border: 0, background: "none" }} type="button">
-                <PlusOutlined />
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </button>
-            </Tooltip>
+          <Upload action={upload} listType="picture-card" maxCount={1} required>
+            {/* <Tooltip placement="top" title={"Пока не работает :("} arrow={true}> */}
+            <button style={{ border: 0, background: "none" }} type="button">
+              <PlusOutlined />
+              <div style={{ marginTop: 8 }}>Загрузить</div>
+            </button>
+            {/* </Tooltip> */}
           </Upload>
         </Form.Item>
 

@@ -48,13 +48,9 @@ const AdsContent = () => {
                   <Card
                     hoverable
                     style={{ width: 240 }}
-                    // cover={
-                    //   <img
-                    //     alt="example"
-                    //     src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                    //   />
-                    // }
-                  >
+                    cover={
+                      el.authorPic && <img alt="example" src={el.authorPic} />
+                    }>
                     <Meta
                       title={el.title}
                       description={el.body.slice(0, 10) + "..."}
