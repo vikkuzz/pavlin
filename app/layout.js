@@ -33,7 +33,13 @@ export const metadata = {
     yandex: "7674f23a4234abf9",
   },
   openGraph: {
-    image: "https://www.ngpavlino.ru/novograd.webp",
+    images: [
+      {
+        url: "https://www.ngpavlino.ru/novograd.webp",
+        width: 800,
+        height: 600,
+      },
+    ],
     url: "https://www.ngpavlino.ru/",
     title: "Новоград Павлино",
     description:
