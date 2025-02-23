@@ -29,14 +29,18 @@ export const metadata = {
     "новоград павлино корпус 7",
     "новоград павлино корпус 8",
   ],
-  "yandex-verification": "d7573c1dd9729d72",
-  "og:url": "https://www.ngpavlino.ru/",
-  "og:title": "Новоград Павлино",
-  "og:description":
-    "Проект для объявлений, новостей и общения жителей жк'Новоград Павлино'",
-  "og:site_name": "Новоград Павлино",
-  "og:locale": "ru_RU",
-  "og:type": "website",
+  verification: {
+    yandex: "d7573c1dd9729d72",
+  },
+  openGraph: {
+    url: "https://www.ngpavlino.ru/",
+    title: "Новоград Павлино",
+    description:
+      "Проект для объявлений, новостей и общения жителей жк'Новоград Павлино'",
+    site_name: "Новоград Павлино",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
