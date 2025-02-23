@@ -33,31 +33,6 @@ export default function MyApp() {
             url="https://media.samolet.ru/video/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%20%D0%9F%D0%B0%D0%B2%D0%BB%D0%B8%D0%BD%D0%BE%20%D1%84%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8C%202025.mp4"
           />
         </div>
-        {/* {user ? (
-            <>
-              <p className="text-xl">Welcome, {user.email}!</p>
-              <Link
-                href="/protected"
-                className="text-blue-500 underline text-lg">
-                <p>Visit the protected page</p>
-              </Link>
-              <SignOut />
-            </>
-          ) : (
-            <>
-              <p className="text-xl">You are not signed in.</p>
-              <Link href="/login">
-                <button className="p-2 rounded-sm bg-blue-500 text-lg font-semibold text-white w-48">
-                  Login here
-                </button>
-              </Link>
-              <Link href="/signup">
-                <button className="p-2 rounded-sm bg-blue-500 text-lg font-semibold text-white w-48">
-                  Signup here
-                </button>
-              </Link>
-            </>
-          )} */}
       </div>
     </div>
   );

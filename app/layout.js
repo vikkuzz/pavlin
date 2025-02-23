@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Новоград Павлино | Главная",
+  title: "Новоград Павлино",
   description: "Новости Новограда Павлино",
   keywords: [
     "новоград объявления",
