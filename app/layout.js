@@ -29,27 +29,19 @@ export const metadata = {
     "новоград павлино корпус 7",
     "новоград павлино корпус 8",
   ],
+  "yandex-verification": "d7573c1dd9729d72",
+  "og:url": "https://www.ngpavlino.ru/",
+  "og:title": "Новоград Павлино",
+  "og:description":
+    "Проект для объявлений, новостей и общения жителей жк'Новоград Павлино'",
+  "og:site_name": "Новоград Павлино",
+  "og:locale": "ru_RU",
+  "og:type": "website",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        {/* Добавляем OG-метки */}
-        <meta property="og:title" content="Новоград Павлино" />
-        <meta
-          property="og:description"
-          content="Проект для объявлений, новостей и общения жителей жк 'Новоград Павлино'"
-        />
-        <meta property="og:url" content="https://www.ngpavlino.ru/" />
-        <meta property="og:site_name" content="Новоград Павлино" />
-        <meta property="og:locale" content="ru_RU" />
-        <meta property="og:type" content="website" />
-        <meta property="yandex-verification" content="d7573c1dd9729d72" />
-
-        {/* Другие метатеги, если нужны */}
-        <title>Новоград Павлино</title>
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Script id="metrika-counter" defer strategy="afterInteractive">
