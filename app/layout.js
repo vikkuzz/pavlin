@@ -30,7 +30,7 @@ export const metadata = {
     "новоград павлино корпус 8",
   ],
   verification: {
-    yandex: "d7573c1dd9729d72",
+    yandex: "7674f23a4234abf9",
   },
   openGraph: {
     url: "https://www.ngpavlino.ru/",
@@ -40,6 +40,11 @@ export const metadata = {
     site_name: "Новоград Павлино",
     locale: "ru_RU",
     type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
   },
 };
 
