@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <meta property="og:site_name" content="Новоград Павлино" />
         <meta property="og:locale" content="ru_RU" />
         <meta property="og:type" content="website" />
-        <meta name="yandex-verification" content="d7573c1dd9729d72" />
+        <meta property="yandex-verification" content="d7573c1dd9729d72" />
 
         {/* Другие метатеги, если нужны */}
         <title>Новоград Павлино</title>
