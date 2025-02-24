@@ -1,12 +1,14 @@
 "use client";
 import { useAuth } from "@/AuthContext";
-import { getPosts } from "@/database/actionsDatabase";
-import { Image } from "antd";
+import { deleteUserPost, getPosts } from "@/database/actionsDatabase";
+import { Image, Button } from "antd";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const OneAdContent = ({ id }) => {
   const { user } = useAuth();
   const [post, setPost] = useState(null);
+  const router = useRouter();
   useEffect(() => {
     getPosts().then((res) => {
       const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
@@ -32,6 +34,17 @@ const OneAdContent = ({ id }) => {
               <p>Желаемый способ связи:{post.contacts}</p>
               <p>Автор: {post.author}</p>
             </div>
+            {user && (
+              <Button
+                color="danger"
+                variant="outlined"
+                onClick={() => {
+                  deleteUserPost(post.id, post.uid);
+                  router.push("/ads");
+                }}>
+                Удалить
+              </Button>
+            )}
           </div>
         </>
       )}

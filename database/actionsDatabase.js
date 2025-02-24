@@ -1,4 +1,12 @@
-import { getDatabase, ref, child, push, update, get } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  child,
+  push,
+  update,
+  get,
+  remove,
+} from "firebase/database";
 
 export function writeNewPost(uid, username, picture, title, body, contacts) {
   const db = getDatabase();
@@ -40,4 +48,25 @@ export function getPosts() {
       console.error(error);
     });
   return posts;
+}
+export function getUserPosts(id) {
+  const dbRef = ref(getDatabase());
+  const posts = get(child(dbRef, `user-posts/${id}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        console.log("No data available");
+        return null;
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  return posts;
+}
+export function deleteUserPost(id, uid) {
+  const dbRef = ref(getDatabase());
+  remove(child(dbRef, `user-posts/${uid}/${id}`));
+  remove(child(dbRef, `posts/${id}`));
 }

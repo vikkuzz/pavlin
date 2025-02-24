@@ -1,6 +1,6 @@
 "use client";
 import { useAuth } from "@/AuthContext";
-import { getPosts } from "@/database/actionsDatabase";
+import { getPosts, getUserPosts } from "@/database/actionsDatabase";
 import { Card, Tooltip } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,23 +8,36 @@ import React, { useEffect, useState } from "react";
 
 const { Meta } = Card;
 
-const AdsContent = () => {
+const AdsContent = ({ all = true }) => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    getPosts().then((res) => {
-      if (res) {
-        const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
-          id,
-          ...obj,
-        }));
-        setPosts(arrayOfObjects);
+    if (all) {
+      getPosts().then((res) => {
+        if (res) {
+          const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
+            id,
+            ...obj,
+          }));
+          setPosts(arrayOfObjects);
+        }
+      });
+    } else {
+      if (user) {
+        getUserPosts(user.uid).then((res) => {
+          if (res) {
+            const arrayOfObjects = Object.entries(res)?.map(([id, obj]) => ({
+              id,
+              ...obj,
+            }));
+            setPosts(arrayOfObjects);
+          }
+        });
       }
-    });
-  }, []);
+    }
+  }, [all, user]);
   return (
     <div className="flex flex-col z-10 w-full h-full items-center justify-between font-mono text-sm lg:flex p-3">
-      <h1 className="text-3xl md:text-4xl">Новоград Павлино | Объявления</h1>
       <div className="flex items-center h-14">
         {!user ? (
           <Tooltip
@@ -63,7 +76,7 @@ const AdsContent = () => {
             })
           ) : (
             <div className="relative w-full h-full">
-              <h2 className="text-center">А тут пока пусто... Будь первым!</h2>
+              <h2 className="text-center">А тут пока пусто...</h2>
               <div className="relative w-full h-full opacity-90 min-h-72">
                 <Image
                   fill

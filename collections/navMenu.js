@@ -11,6 +11,11 @@ export const navItems = [
   },
   {
     key: "3",
+    label: "Мои объявления",
+    href: "/myads",
+  },
+  {
+    key: "4",
     label: "Контакты",
     href: "/contacts",
   },
