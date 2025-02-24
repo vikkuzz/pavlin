@@ -34,6 +34,9 @@ export const metadata = {
     "новоград павлино корпус 7",
     "новоград павлино корпус 8",
   ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   verification: {
     yandex: "7674f23a4234abf9",
   },
