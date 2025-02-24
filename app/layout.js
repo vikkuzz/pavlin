@@ -3,7 +3,6 @@ import "./globals.css";
 import { AuthProvider } from "@/AuthContext";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import LayoutPage from "@/components/LayoutPage";
-import Head from "next/head";
 import Script from "next/script";
 
 const geistSans = Geist({
