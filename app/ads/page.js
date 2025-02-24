@@ -11,7 +11,7 @@ const AdsPage = () => {
       <h1 className="text-3xl md:text-4xl mt-4">
         Новоград Павлино | Объявления
       </h1>
-      <AdsContent all={false} />
+      <AdsContent all={true} />
     </div>
   );
 };
