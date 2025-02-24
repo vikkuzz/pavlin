@@ -19,7 +19,9 @@ const NewAdsContent = () => {
   const { user } = useAuth();
   const router = useRouter();
   const [urlPhoto, setUrlPhoto] = useState("");
+  const [load, setLoad] = useState(false);
   const handleSubmit = async (values) => {
+    setLoad(true);
     writeNewPost(
       user.uid,
       user.email,
@@ -33,6 +35,7 @@ const NewAdsContent = () => {
       email: user.email,
       message: values.text,
     });
+
     router.push("/ads");
   };
 
@@ -81,7 +84,9 @@ const NewAdsContent = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button htmlType="submit">Отправить</Button>
+          <Button htmlType="submit" disabled={load}>
+            Отправить
+          </Button>
         </Form.Item>
       </Form>
     </>
