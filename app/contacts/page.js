@@ -1,4 +1,3 @@
-import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 
 export const metadata = {
@@ -19,7 +18,6 @@ const Page = () => {
           </div>
           <span>@vikkuzz</span>
         </a>
-        <ContactForm />
       </p>
     </div>
   );

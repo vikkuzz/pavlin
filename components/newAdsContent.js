@@ -4,6 +4,7 @@ import { Button, Form, Input, Tooltip, Upload } from "antd";
 import { writeNewPost } from "@/database/actionsDatabase";
 import { useAuth } from "@/AuthContext";
 import { useRouter } from "next/navigation";
+import sendMessageToTelegram from "@/telegram/contact";
 
 const { TextArea } = Input;
 
@@ -18,8 +19,7 @@ const NewAdsContent = () => {
   const { user } = useAuth();
   const router = useRouter();
   const [urlPhoto, setUrlPhoto] = useState("");
-  const handleSubmit = (values) => {
-    let photo = values.photo ? values.photo[0] : "";
+  const handleSubmit = async (values) => {
     writeNewPost(
       user.uid,
       user.email,
@@ -28,23 +28,12 @@ const NewAdsContent = () => {
       values.text,
       values.contacts
     );
+    await sendMessageToTelegram({
+      name: user.email,
+      email: user.email,
+      message: values.text,
+    });
     router.push("/ads");
-    // Здесь можно отправить данные на сервер через fetch или axios
-    // Например:
-    // fetch("/your-api-endpoint", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(values),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Success:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
   };
 
   function upload(file) {
