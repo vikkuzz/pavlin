@@ -10,7 +10,7 @@ const Page = () => {
   return (
     <div className="flex flex-col z-10 w-full h-full items-center justify-between font-mono text-sm lg:flex p-3">
       <h1 className="text-3xl md:text-4xl mt-4">Новоград Павлино | Контакты</h1>
-      <p className="flex flex-col gap-3">
+      <p>
         <a
           href="https://t.me/vikkuzz"
           className="flex gap-2 items-center justify-center mt-8">
@@ -18,8 +18,8 @@ const Page = () => {
             <Image alt="logo" fill src="/image/logo_telegram.svg"></Image>
           </div>
           <span>@vikkuzz</span>
+          <ContactForm />
         </a>
-        <ContactForm />
       </p>
     </div>
   );
