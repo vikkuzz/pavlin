@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import axios from "axios";
 
 function ContactForm() {
   const [userInput, setUserInput] = useState({
@@ -17,17 +16,14 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, message } = userInput;
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
-    console.log(botToken);
 
     const text = `
-        Отправлено с https://www.ngpavlino.ru \n
-        Новое сообщение от ${name} \n
-        Email: ${email} \n
+        Отправлено с https://www.ngpavlino.ru 
+        Новое сообщение от ${name} 
+        Email: ${email} 
         Сообщение: ${message}
       `;
-    const telegramUrl = `https://api.telegram.org/bot7832192293:AAHOU45tiqFqEUjrVzDh6TxGyvRkfEYCkow/sendMessage?chat_id=-4625971406&text=${text}`;
+    const telegramUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_CHAT_ID}&text=${text}`;
     try {
       // Send the message via the Telegram Bot API
       const response = await fetch(telegramUrl, {
@@ -47,9 +43,6 @@ function ContactForm() {
       }
     } catch (error) {
       console.error("Error sending message to Telegram:", error);
-      return res
-        .status(500)
-        .json({ success: false, message: "Error sending message." });
     }
   };
 
