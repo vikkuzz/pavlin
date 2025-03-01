@@ -64,7 +64,7 @@ const NewAdsContent = () => {
         <Form.Item name="text" label="Текст:">
           <TextArea rows={4} required />
         </Form.Item>
-        <Form.Item label="Желаемый способ связи" name="contacts">
+        <Form.Item label="Предпочтительный способ связи" name="contacts">
           <Input required />
         </Form.Item>
 

@@ -1,3 +1,4 @@
+'use client'
 import { useAuth } from "../AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";

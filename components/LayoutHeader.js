@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import { usePathname } from "next/navigation";

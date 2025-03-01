@@ -18,7 +18,7 @@ export default async function MyApp() {
             <h3>23.02.2025 Видео одного из будущих жильцов. Корпус 6.</h3>
             <VideoPlayer url="/video/IMG_4270.MP4" />
           </div>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

@@ -16,6 +16,11 @@ export const navItems = [
   },
   {
     key: "4",
+    label: "Отзывы",
+    href: "/about",
+  },
+  {
+    key: "5",
     label: "Контакты",
     href: "/contacts",
   },
