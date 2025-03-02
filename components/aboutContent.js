@@ -112,7 +112,7 @@ const AboutContent = () => {
         },
       }}>
       <div className="flex flex-col w-full h-full items-center justify-between font-mono text-sm p-3">
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap max-w-full">
           {categoryAbout.map((el) => (
             <Button
               color="default"
@@ -213,7 +213,7 @@ const AboutContent = () => {
             )}
           </div>
         </section>
-        <section className="w-full p-24">
+        <section className="w-full pt-16 md:p-24 ">
           <Divider orientation="center">
             <h2 className="text-lg font-bold">Отзывы</h2>
           </Divider>

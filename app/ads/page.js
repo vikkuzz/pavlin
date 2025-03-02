@@ -15,7 +15,8 @@ const AdsPage = () => {
       <h2 className="mt-4">
         Объявления дублируются в телеграм:{" "}
         <a
-          href="https://t.me/+fkx9UdwlYTgwMDcy"
+          target="blank"
+          href="https://t.me/+prc9QTUPlm8zZjQy"
           className="flex gap-2 items-center justify-center">
           <div className="relative w-6 h-6">
             <Image alt="logo" fill src="/image/logo_telegram.svg" />

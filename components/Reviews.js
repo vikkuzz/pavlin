@@ -13,6 +13,7 @@ import {
   Input,
   Modal,
   Radio,
+  Spin,
   Tag,
   Tooltip,
 } from "antd";
@@ -69,6 +70,7 @@ const Reviews = () => {
         arrow={true}>
         <Button
           type="primary"
+          className="flex self-center"
           onClick={() => setOpenResponsive(true)}
           disabled={!user}>
           <PlusCircleTwoTone />
@@ -76,38 +78,9 @@ const Reviews = () => {
         </Button>
       </Tooltip>
       {loading && (
-        <Flex gap="middle" align="start" vertical>
-          <Card
-            loading={loading}
-            actions={actions}
-            style={{ minWidth: 300 }}
-            className="relative w-full">
-            <Tag color="geekblue" className="!absolute -top-2">
-              geekblue
-            </Tag>
-            <Card.Meta
-              avatar={
-                <Avatar src="https://api.dicebear.com/9.x/miniavs/svg?hair=long" />
-              }
-              description={<></>}
-            />
-          </Card>
-          <Card
-            loading={loading}
-            actions={actions}
-            style={{ minWidth: 300 }}
-            className="relative w-full">
-            <Tag color="geekblue" className="!absolute -top-2">
-              geekblue
-            </Tag>
-            <Card.Meta
-              avatar={
-                <Avatar src="https://api.dicebear.com/9.x/miniavs/svg?hair=classic01" />
-              }
-              description={<></>}
-            />
-          </Card>
-        </Flex>
+        <div className="flex w-full justify-center pt-8">
+          <Spin size="large" />
+        </div>
       )}
       {stateReviews &&
         stateReviews.length > 0 &&
