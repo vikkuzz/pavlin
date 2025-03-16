@@ -63,6 +63,7 @@ const AdsContent = ({ all = true }) => {
                   <Card
                     hoverable
                     style={{ width: 240 }}
+                    className="h-full"
                     cover={
                       el.authorPic && <img alt="example" src={el.authorPic} />
                     }>
