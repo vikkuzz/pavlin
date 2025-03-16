@@ -5,7 +5,7 @@ import { Button, Form, Input, Tooltip, Upload } from "antd";
 import { writeNewPost } from "@/database/actionsDatabase";
 import { useAuth } from "@/AuthContext";
 import { useRouter } from "next/navigation";
-import sendMessageToTelegram from "@/telegram/contact";
+// import sendMessageToTelegram from "@/telegram/contact";
 
 const { TextArea } = Input;
 
@@ -31,11 +31,6 @@ const NewAdsContent = () => {
       values.text,
       values.contacts
     );
-    await sendMessageToTelegram({
-      name: user.email,
-      email: user.email,
-      message: values.text,
-    });
 
     router.push("/ads");
   };

@@ -1,3 +1,4 @@
+import sendMessageToTelegram from "@/telegram/contact";
 import {
   calculateAverageByDate,
   getAverages,
@@ -13,7 +14,14 @@ import {
   remove,
 } from "firebase/database";
 
-export function writeNewPost(uid, username, picture, title, body, contacts) {
+export async function writeNewPost(
+  uid,
+  username,
+  picture,
+  title,
+  body,
+  contacts
+) {
   const db = getDatabase();
 
   // A post entry.
@@ -34,6 +42,13 @@ export function writeNewPost(uid, username, picture, title, body, contacts) {
   const updates = {};
   updates["/posts/" + newPostKey] = postData;
   updates["/user-posts/" + uid + "/" + newPostKey] = postData;
+
+  await sendMessageToTelegram({
+    name: username,
+    email: username,
+    message: body,
+    id_mess: newPostKey,
+  });
 
   return update(ref(db), updates);
 }
