@@ -10,6 +10,13 @@ export default async function MyApp() {
           <h2 className="text-2xl font-bold">Новости</h2>
           <div className="flex flex-col gap-4">
             <h3>
+              <strong>Март 2025.</strong> "Самолет" выложил новое видео о ходе
+              строительства новостроек
+            </h3>
+            <VideoPlayer url="https://media.samolet.ru/video/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%20%D0%9F%D0%B0%D0%B2%D0%BB%D0%B8%D0%BD%D0%BE%20%D0%BC%D0%B0%D1%80%D1%82%202025.mp4" />
+          </div>
+          <div className="flex flex-col gap-4">
+            <h3>
               <strong>11.03.2025</strong> Реконструкция улицы Бояринова и
               соединение ее с а/д ЮЛА запланировано на 2027 год
             </h3>
@@ -32,7 +39,7 @@ export default async function MyApp() {
                 746 163,21 руб. Сроки реализации проекта: до конца 2027 года».
               </p>
             </div>
-          </div>
+          </div>          
           <div className="flex flex-col gap-4">
             <h3>
               <strong>20.02.2025</strong> "Самолет" выложил новое видео о ходе
