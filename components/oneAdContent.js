@@ -34,7 +34,7 @@ const OneAdContent = ({ id }) => {
               <p>Желаемый способ связи:{post.contacts}</p>
               <p>Автор: {post.author}</p>
             </div>
-            {user.uid === post.uid && (
+            {user?.uid === post.uid && (
               <Button
                 color="danger"
                 variant="outlined"

@@ -1,5 +1,6 @@
 import VideoPlayer from "@/components/VideoPlayer";
-import Image from "next/image";
+import { Image } from "antd";
+
 
 export default async function MyApp() {
   return (
@@ -21,7 +22,7 @@ export default async function MyApp() {
               соединение ее с а/д ЮЛА запланировано на 2027 год
             </h3>
             <div className="flex flex-col gsp-4">
-              <div className="relative h-80 max-w-[640px]">
+              <div className="relative max-w-[640px]">
                 <Image
                   alt="map"
                   fill
